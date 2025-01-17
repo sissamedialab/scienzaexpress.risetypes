@@ -1,14 +1,14 @@
-# -*- coding: utf-8 -*-
-
 # from scienzaexpress.risebook import _
 from Products.Five.browser import BrowserView
 from zope.interface import implementer
 from zope.interface import Interface
 
+
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+
 class ICreatePages(Interface):
-    """ Marker Interface for ICreatePages"""
+    """Marker Interface for ICreatePages"""
 
 
 @implementer(ICreatePages)

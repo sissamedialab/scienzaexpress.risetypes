@@ -2,17 +2,18 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
-    i18n_domain="scienzaexpress.risebook">
+    i18n_domain="scienzaexpress.risebook"
+    >
 
- <!-- -*- extra stuff goes here -*- -->
+  <!-- -*- extra stuff goes here -*- -->
 
   <browser:page
-    name="create-pages"
-    for="Book"
-    class=".create_pages.CreatePages"
-    template="create_pages.pt"
-    permission="zope2.View"
-    layer="scienzaexpress.risebook.interfaces.IScienzaexpressRisebookLayer"
-    />
+      name="create-pages"
+      for="Book"
+      class=".create_pages.CreatePages"
+      template="create_pages.pt"
+      permission="zope2.View"
+      layer="scienzaexpress.risebook.interfaces.IScienzaexpressRisebookLayer"
+      />
 
 </configure>
