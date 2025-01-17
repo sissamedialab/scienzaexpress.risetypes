@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<object meta_type="Plone Types Tool"
-        name="portal_types"
->
+<?xml version='1.0' encoding='UTF-8'?>
+<object meta_type="Plone Types Tool" name="portal_types">
   <!--
   <object meta_type="Dexterity FTI"
           name="MyType"
   />
 -->
-  <object meta_type="Dexterity FTI"
-          name="Book"
-  />
+  <object meta_type="Dexterity FTI" name="Book"/>
+  <object name="Cover" meta_type="Dexterity FTI"/>
 </object>
