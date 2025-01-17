@@ -6,4 +6,10 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
+  <permission
+      id="scienzaexpress.risebook.AddBook"
+      title="scienzaexpress.risebook: Add Book"
+      />
+
+
 </configure>
