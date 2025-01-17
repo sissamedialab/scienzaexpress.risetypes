@@ -1,9 +1,10 @@
-# -*- coding: utf-8 -*-
 # from plone.app.textfield import RichText
 # from plone.autoform import directives
 from plone.dexterity.content import Container
+
 # from plone.namedfile import field as namedfile
 from plone.supermodel import model
+
 # from plone.supermodel.directives import fieldset
 # from z3c.form.browser.radio import RadioFieldWidget
 # from zope import schema
@@ -14,8 +15,8 @@ from zope.interface import implementer
 
 
 class ICover(model.Schema):
-    """ Marker interface and Dexterity Python Schema for Cover
-    """
+    """Marker interface and Dexterity Python Schema for Cover"""
+
     # If you want, you can load a xml model created TTW here
     # and customize it in Python:
 
@@ -59,5 +60,4 @@ class ICover(model.Schema):
 
 @implementer(ICover)
 class Cover(Container):
-    """ Content-type class for ICover
-    """
+    """Content-type class for ICover"""

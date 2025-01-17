@@ -6,10 +6,10 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
-    <permission
-        id="scienzaexpress.risebook.AddCover"
-        title="scienzaexpress.risebook: Add Cover"
-    />
+  <permission
+      id="scienzaexpress.risebook.AddCover"
+      title="scienzaexpress.risebook: Add Cover"
+      />
 
 
   <permission

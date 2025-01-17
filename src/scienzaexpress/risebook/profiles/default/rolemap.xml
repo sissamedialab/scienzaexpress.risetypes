@@ -3,11 +3,13 @@
   <permissions>
     <!-- -*- extra stuff goes here -*- -->
 
-    <permission name="scienzaexpress.risebook: Add Cover" acquire="True">
-      <role name="Manager"/>
-      <role name="Site Administrator"/>
-      <role name="Owner"/>
-      <role name="Contributor"/>
+    <permission acquire="True"
+                name="scienzaexpress.risebook: Add Cover"
+    >
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Contributor" />
     </permission>
 
 
