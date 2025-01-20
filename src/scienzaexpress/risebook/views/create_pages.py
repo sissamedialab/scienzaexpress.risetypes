@@ -1,4 +1,5 @@
 # from scienzaexpress.risebook import _
+from plone.api.content import create
 from Products.Five.browser import BrowserView
 from zope.interface import implementer
 from zope.interface import Interface
@@ -19,4 +20,29 @@ class CreatePages(BrowserView):
 
     def __call__(self):
         # Implement your own actions:
+        print("CreatePages called!!!!!!!!")
+        # because of the configuration of the view (views/configure.zcml),
+        # I should be able to assert isinstance(self.context, Book)
+
+        # TODO: if exists "cover" then quit
+
+        cover = create(
+            container=self.context,
+            type="Cover",
+            id="cover",
+            title="Cover",
+        )
+        cover.setDescription("Cover di mille balene!")
+
+        # TODO: test No need for re-indexing
+        # TODO: No need for transitions
+
+        # TODO: body and contratti
+
+        # TODO: add pop-up message or similar: "Book built!"
+        # ? # request = container.REQUEST
+        # ? # response =  request.response
+
+        # TODO: if all went well, redirect to Book main view
+
         return self.index()

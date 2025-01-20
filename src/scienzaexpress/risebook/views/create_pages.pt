@@ -26,7 +26,7 @@
     <metal:content-core fill-slot="content-core">
       <metal:block define-macro="content-core">
 
-        <h2>Main content</h2>
+        <h2 i18n:translate="ciaone">CIAONE</h2>
         <!--<div tal:replace="view/my_custom_view_method" />-->
         <!--<div tal:replace="context/my_custom_field" />-->
 

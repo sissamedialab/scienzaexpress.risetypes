@@ -9,11 +9,23 @@
 
   <browser:page
       name="create-pages"
-      for="Book"
+      for="scienzaexpress.risebook.content.book.Book"
       class=".create_pages.CreatePages"
       template="create_pages.pt"
       permission="zope2.View"
-      layer="scienzaexpress.risebook.interfaces.IScienzaexpressRisebookLayer"
       />
+
+  <!-- The code below was given me by plonecli -->
+  <!-- I wasn't able to find the DTDs (or similar) for ZCML -->
+  <!-- and I'm not sure what browser:page[layer] means -->
+
+  <!-- <browser:page -->
+  <!--     name="create-pages" -->
+  <!--     for="Book" -->
+  <!--     class=".create_pages.CreatePages" -->
+  <!--     template="create_pages.pt" -->
+  <!--     permission="zope2.View" -->
+  <!--     layer="scienzaexpress.risebook.interfaces.IScienzaexpressRisebookLayer" -->
+  <!--     /> -->
 
 </configure>
