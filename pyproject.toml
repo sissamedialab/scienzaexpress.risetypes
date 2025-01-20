@@ -168,3 +168,6 @@ ignore = [
 #  _your own configuration lines_
 #  """
 ##
+
+[tool.pydocstyle]
+ignore = ["D400","D415","D203", "D102",]
