@@ -43,12 +43,13 @@ repos:
 #  _your own configuration lines_
 #  """
 ##
--   repo: https://github.com/codespell-project/codespell
-    rev: v2.2.6
-    hooks:
-    -   id: codespell
-        additional_dependencies:
-          - tomli
+# No codespell (for now) it complains about Italian text...
+# -   repo: https://github.com/codespell-project/codespell
+#     rev: v2.2.6
+#     hooks:
+#     -   id: codespell
+#         additional_dependencies:
+#           - tomli
 
 ##
 # Add extra configuration options in .meta.toml:
