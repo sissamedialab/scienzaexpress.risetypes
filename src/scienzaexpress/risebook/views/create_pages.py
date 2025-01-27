@@ -29,7 +29,8 @@ class CreatePages(BrowserView):
         # TODO: test No need for re-indexing
         # TODO: No need for transitions
 
-        # TODO: body and contratti
+        self.create_body()
+        # TODO: contratti
 
         # TODO: add pop-up message or similar: "Book built!"
         # ? # request = container.REQUEST
@@ -56,3 +57,21 @@ class CreatePages(BrowserView):
             title="Cover",
         )
         cover.setDescription("Cover di mille balene!")
+
+    def create_body(self) -> None:
+        """Create the container for body files."""
+        if "body" in self.context:
+            api.portal.show_message(
+                message="Body container already exists. Doing nothing!",
+                request=self.request,
+                type="warning",  # types: 'info', 'warning', 'error', 'success'
+            )
+            return
+
+        body = create(
+            container=self.context,
+            type="Corpo",
+            id="body",
+            title="Corpo",
+        )
+        body.setDescription("Corpo di mille balene!")
