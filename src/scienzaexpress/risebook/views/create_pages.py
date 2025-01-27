@@ -1,4 +1,5 @@
 # from scienzaexpress.risebook import _
+from plone import api
 from plone.api.content import create
 from Products.Five.browser import BrowserView
 from zope.interface import implementer
@@ -24,16 +25,7 @@ class CreatePages(BrowserView):
         # because of the configuration of the view (views/configure.zcml),
         # I should be able to assert isinstance(self.context, Book)
 
-        # TODO: if exists "cover" then quit
-
-        cover = create(
-            container=self.context,
-            type="Cover",
-            id="cover",
-            title="Cover",
-        )
-        cover.setDescription("Cover di mille balene!")
-
+        self.create_cover()
         # TODO: test No need for re-indexing
         # TODO: No need for transitions
 
@@ -46,3 +38,21 @@ class CreatePages(BrowserView):
         # TODO: if all went well, redirect to Book main view
 
         return self.index()
+
+    def create_cover(self) -> None:
+        """Create the container for cover files."""
+        if "cover" in self.context:
+            api.portal.show_message(
+                message="Cover container already exists. Doing nothing!",
+                request=self.request,
+                type="warning",  # types: 'info', 'warning', 'error', 'success'
+            )
+            return
+
+        cover = create(
+            container=self.context,
+            type="Cover",
+            id="cover",
+            title="Cover",
+        )
+        cover.setDescription("Cover di mille balene!")
