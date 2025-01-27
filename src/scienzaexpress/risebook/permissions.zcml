@@ -7,6 +7,12 @@
   <!-- -*- extra stuff goes here -*- -->
 
   <permission
+      id="scienzaexpress.risebook.AddCorpo"
+      title="scienzaexpress.risebook: Add Corpo"
+      />
+
+
+  <permission
       id="scienzaexpress.risebook.AddCover"
       title="scienzaexpress.risebook: Add Cover"
       />

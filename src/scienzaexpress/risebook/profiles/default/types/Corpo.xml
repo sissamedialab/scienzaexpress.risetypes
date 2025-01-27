@@ -1,40 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
         meta_type="Dexterity FTI"
-        name="Book"
+        name="Corpo"
         i18n:domain="scienzaexpress.risebook"
 >
 
   <!-- Basic properties -->
   <property name="title"
             i18n:translate=""
-  >Book</property>
+  >Corpo</property>
   <property name="description"
             i18n:translate=""
-  >The container for all pieces that make up a book</property>
+  >Corpo del libro. Contiene il testo del libro, generalmente varie copie dello stesso, una per ogni fase di lavorazione.</property>
 
   <property name="allow_discussion">False</property>
-  <property name="factory">Book</property>
-  <property name="icon_expr">string:book</property>
+  <property name="factory">Corpo</property>
+  <property name="icon_expr">string:body-text</property>
   <property name="link_target" />
 
   <!-- Hierarchy control -->
-  <property name="global_allow">True</property>
+  <property name="global_allow">False</property>
   <property name="filter_content_types">False</property>
   <property name="allowed_content_types">
-    <element value="Corpo" />
-    <element value="Cover" />
     <!--
     <element value="Document" />
     <element value="File" />
   -->
   </property>
   <!-- Schema, class and security -->
-  <property name="add_permission">scienzaexpress.risebook.AddBook</property>
-  <property name="klass">scienzaexpress.risebook.content.book.Book</property>
+  <property name="add_permission">scienzaexpress.risebook.AddCorpo</property>
+  <property name="klass">scienzaexpress.risebook.content.corpo.Corpo</property>
   <property name="model_file" />
   <property name="model_source" />
-  <property name="schema">scienzaexpress.risebook.content.book.IBook</property>
+  <property name="schema">scienzaexpress.risebook.content.corpo.ICorpo</property>
 
   <!-- Enabled behaviors -->
   <property name="behaviors"
@@ -65,7 +63,7 @@
   </property>
 
   <!-- View information -->
-  <property name="add_view_expr">string:${folder_url}/++add++Book</property>
+  <property name="add_view_expr">string:${folder_url}/++add++Corpo</property>
   <property name="default_view">view</property>
   <property name="default_view_fallback">False</property>
   <property name="immediate_view">view</property>
@@ -106,18 +104,6 @@
           icon_expr="string:toolbar-action/edit"
           title="Edit"
           url_expr="string:${object_url}/edit"
-          visible="True"
-          i18n:attributes="title"
-          i18n:domain="plone"
-  >
-    <permission value="Modify portal content" />
-  </action>
-  <action action_id="setup"
-          category="object"
-          condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user|python:True"
-          icon_expr="string:layers"
-          title="Setup"
-          url_expr="string:${object_url}/create-pages"
           visible="True"
           i18n:attributes="title"
           i18n:domain="plone"
