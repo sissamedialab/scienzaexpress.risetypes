@@ -207,7 +207,7 @@ indent-width = 4
 target-version = "py311"
 
 [tool.ruff.lint]
-select = ["ALL"]
+select = ["ALL", "A003"]
 ignore = ["D100"]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
