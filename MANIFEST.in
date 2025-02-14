@@ -1,4 +1,4 @@
-graft src/scienzaexpress/risebook
+graft src/scienzaexpress/risetypes
 graft docs
 graft news
 graft tests

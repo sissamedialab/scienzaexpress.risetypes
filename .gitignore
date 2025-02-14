@@ -42,6 +42,8 @@ var/
 .installed.txt
 .lock
 
+*~
+
 ##
 # Add extra configuration options in .meta.toml:
 #  [gitignore]

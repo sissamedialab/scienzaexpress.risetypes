@@ -1,4 +1,4 @@
-"""Installer for the scienzaexpress.risebook package."""
+"""Installer for the scienzaexpress.risetypes package."""
 
 from pathlib import Path
 from setuptools import find_packages
@@ -13,9 +13,9 @@ long_description = f"""
 
 
 setup(
-    name="scienzaexpress.risebook",
+    name="scienzaexpress.risetypes",
     version="1.0.0a0",
-    description="A book document type for Scienza Express's RISE",
+    description="Collection of content types for RISE",
     long_description=long_description,
     long_description_content_type="text/markdown",
     classifiers=[
@@ -25,34 +25,35 @@ setup(
         "Framework :: Plone :: Addon",
         "Framework :: Plone :: 6.0",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
         "Operating System :: OS Independent",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
     keywords="Python Plone CMS",
-    author="MG",
+    author="Matteo",
     author_email="gamboz@medialab.sissa.it",
-    url="https://github.com/gamboz/scienzaexpress.risebook",
+    url="https://github.com/gamboz/scienzaexpress.risetypes",
     project_urls={
-        "PyPI": "https://pypi.org/project/scienzaexpress.risebook",
-        "Source": "https://github.com/gamboz/scienzaexpress.risebook",
-        "Tracker": "https://github.com/gamboz/scienzaexpress.risebook/issues",
+        "PyPI": "https://pypi.org/project/scienzaexpress.risetypes",
+        "Source": "https://github.com/gamboz/scienzaexpress.risetypes",
+        "Tracker": "https://github.com/gamboz/scienzaexpress.risetypes/issues",
     },
     license="GPL version 2",
     packages=find_packages("src", exclude=["ez_setup"]),
-    # namespace_packages=["scienzaexpress"],
+    namespace_packages=["scienzaexpress"],
     package_dir={"": "src"},
     include_package_data=True,
     zip_safe=False,
-    python_requires=">=3.8",
+    python_requires=">=3.10",
     install_requires=[
         "setuptools",
         "Products.CMFPlone",
         "plone.api",
+        "plone.restapi",
+        "plone.volto",
     ],
     extras_require={
         "test": [
@@ -69,6 +70,6 @@ setup(
     [z3c.autoinclude.plugin]
     target = plone
     [console_scripts]
-    update_locale = scienzaexpress.risebook.locales.update:update_locale
+    update_locale = scienzaexpress.risetypes.locales.update:update_locale
     """,
 )

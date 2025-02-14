@@ -1,3 +1,3 @@
 # Contributors
 
-- MG [gamboz@medialab.sissa.it]
+- Matteo [gamboz@medialab.sissa.it]

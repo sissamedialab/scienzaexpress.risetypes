@@ -2,7 +2,7 @@ from AccessControl.SecurityManagement import newSecurityManager
 from Products.CMFPlone.factory import _DEFAULT_PROFILE
 from Products.CMFPlone.factory import addPloneSite
 from Products.GenericSetup.tool import SetupTool
-from scienzaexpress.risebook.interfaces import IBrowserLayer
+from scienzaexpress.risetypes.interfaces import IBrowserLayer
 from Testing.makerequest import makerequest
 from zope.interface import directlyProvidedBy
 from zope.interface import directlyProvides
@@ -42,8 +42,9 @@ newSecurityManager(None, admin)
 
 site_id = "Plone"
 payload = {
-    "title": "RISE Book",
+    "title": "RISE types",
     "profile_id": _DEFAULT_PROFILE,
+    "distribution_name": "volto",
     "setup_content": False,
     "default_language": "en",
     "portal_timezone": "UTC",
@@ -59,5 +60,7 @@ if site_id not in app.objectIds():
     transaction.commit()
 
     portal_setup: SetupTool = site.portal_setup
-    portal_setup.runAllImportStepsFromProfile("profile-scienzaexpress.risebook:default")
+    portal_setup.runAllImportStepsFromProfile(
+        "profile-scienzaexpress.risetypes:default"
+    )
     transaction.commit()

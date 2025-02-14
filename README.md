@@ -1,6 +1,6 @@
-# scienzaexpress.risebook
+# scienzaexpress.risetypes
 
-A book document type for Scienza Express's RISE
+Collection of content types for RISE
 
 ## Features
 
@@ -8,10 +8,10 @@ TODO: List our awesome features
 
 ## Installation
 
-Install scienzaexpress.risebook with `pip`:
+Install scienzaexpress.risetypes with `pip`:
 
 ```shell
-pip install scienzaexpress.risebook
+pip install scienzaexpress.risetypes
 ```
 
 And to create the Plone site:
@@ -50,8 +50,8 @@ See also the documentation of [Mockup and Patternslib](https://6.docs.plone.org/
 
 ## Contribute
 
-- [Issue Tracker](https://github.com/gamboz/scienzaexpress.risebook/issues)
-- [Source Code](https://github.com/gamboz/scienzaexpress.risebook/)
+- [Issue Tracker](https://github.com/gamboz/scienzaexpress.risetypes/issues)
+- [Source Code](https://github.com/gamboz/scienzaexpress.risetypes/)
 
 ## License
 
@@ -59,4 +59,4 @@ The project is licensed under GPLv2.
 
 ## Credits and Acknowledgements 🙏
 
-Crafted with care by **Generated using [Cookieplone (0.8.1)](https://github.com/plone/cookieplone) and [cookiecutter-plone (d9b5293)](https://github.com/plone/cookiecutter-plone/commit/d9b52933cbc6efd137e93e35a270214e307359f0) on 2025-01-10 17:05:21.553431**. A special thanks to all contributors and supporters!
+Generated using [Cookieplone (0.8.1)](https://github.com/plone/cookieplone) and [cookiecutter-plone (91f7d2b)](https://github.com/plone/cookiecutter-plone/commit/91f7d2b0a61b4685d383e79a7367b23b6488e534) on 2025-02-14 15:04:27.612580. A special thanks to all contributors and supporters!

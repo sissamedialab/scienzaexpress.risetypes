@@ -1,14 +1,14 @@
-from scienzaexpress.risebook import PACKAGE_NAME
+from scienzaexpress.risetypes import PACKAGE_NAME
 
 
 class TestSetupInstall:
     def test_addon_installed(self, installer):
-        """Test if scienzaexpress.risebook is installed."""
+        """Test if scienzaexpress.risetypes is installed."""
         assert installer.is_product_installed(PACKAGE_NAME) is True
 
     def test_browserlayer(self, browser_layers):
         """Test that IBrowserLayer is registered."""
-        from scienzaexpress.risebook.interfaces import IBrowserLayer
+        from scienzaexpress.risetypes.interfaces import IBrowserLayer
 
         assert IBrowserLayer in browser_layers
 

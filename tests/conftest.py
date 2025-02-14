@@ -1,7 +1,7 @@
 from pytest_plone import fixtures_factory
-from scienzaexpress.risebook.testing import ACCEPTANCE_TESTING
-from scienzaexpress.risebook.testing import FUNCTIONAL_TESTING
-from scienzaexpress.risebook.testing import INTEGRATION_TESTING
+from scienzaexpress.risetypes.testing import ACCEPTANCE_TESTING
+from scienzaexpress.risetypes.testing import FUNCTIONAL_TESTING
+from scienzaexpress.risetypes.testing import INTEGRATION_TESTING
 
 
 pytest_plugins = ["pytest_plone"]
