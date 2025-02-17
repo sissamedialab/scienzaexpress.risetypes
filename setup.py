@@ -52,8 +52,8 @@ setup(
         "setuptools",
         "Products.CMFPlone",
         "plone.api",
-        "plone.restapi",
-        "plone.volto",
+        # "plone.restapi",
+        # "plone.volto",
     ],
     extras_require={
         "test": [
