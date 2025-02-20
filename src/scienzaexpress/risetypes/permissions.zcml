@@ -6,4 +6,46 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
+  <permission
+      id="scienzaexpress.risetypes.AddScire"
+      title="scienzaexpress.risetypes: Add Scire"
+      />
+
+
+  <permission
+      id="scienzaexpress.risetypes.AddNuovaLetteraMatematica"
+      title="scienzaexpress.risetypes: Add NuovaLetteraMatematica"
+      />
+
+
+  <permission
+      id="scienzaexpress.risetypes.AddContenutoDigitale"
+      title="scienzaexpress.risetypes: Add ContenutoDigitale"
+      />
+
+
+  <permission
+      id="scienzaexpress.risetypes.AddEBook"
+      title="scienzaexpress.risetypes: Add EBook"
+      />
+
+
+  <permission
+      id="scienzaexpress.risetypes.AddAlbo"
+      title="scienzaexpress.risetypes: Add Albo"
+      />
+
+
+  <permission
+      id="scienzaexpress.risetypes.AddLibro"
+      title="scienzaexpress.risetypes: Add Libro"
+      />
+
+
+  <permission
+      id="scienzaexpress.risetypes.AddMaterialeIstruttorio"
+      title="scienzaexpress.risetypes: Add MaterialeIstruttorio"
+      />
+
+
 </configure>

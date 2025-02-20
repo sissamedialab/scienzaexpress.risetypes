@@ -7,4 +7,25 @@
           name="MyType"
   />
 -->
+  <object meta_type="Dexterity FTI"
+          name="Materiale Istruttorio"
+  />
+  <object meta_type="Dexterity FTI"
+          name="Libro"
+  />
+  <object meta_type="Dexterity FTI"
+          name="Albo"
+  />
+  <object meta_type="Dexterity FTI"
+          name="E-Book"
+  />
+  <object meta_type="Dexterity FTI"
+          name="Contenuto Digitale"
+  />
+  <object meta_type="Dexterity FTI"
+          name="Nuova Lettera Matematica"
+  />
+  <object meta_type="Dexterity FTI"
+          name="SCIRE"
+  />
 </object>
