@@ -2,5 +2,75 @@
 <rolemap>
   <permissions>
     <!-- -*- extra stuff goes here -*- -->
+
+    <permission acquire="True"
+                name="scienzaexpress.risetypes: Add Scire"
+    >
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Contributor" />
+    </permission>
+
+
+    <permission acquire="True"
+                name="scienzaexpress.risetypes: Add NuovaLetteraMatematica"
+    >
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Contributor" />
+    </permission>
+
+
+    <permission acquire="True"
+                name="scienzaexpress.risetypes: Add ContenutoDigitale"
+    >
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Contributor" />
+    </permission>
+
+
+    <permission acquire="True"
+                name="scienzaexpress.risetypes: Add EBook"
+    >
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Contributor" />
+    </permission>
+
+
+    <permission acquire="True"
+                name="scienzaexpress.risetypes: Add Albo"
+    >
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Contributor" />
+    </permission>
+
+
+    <permission acquire="True"
+                name="scienzaexpress.risetypes: Add Libro"
+    >
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Contributor" />
+    </permission>
+
+
+    <permission acquire="True"
+                name="scienzaexpress.risetypes: Add MaterialeIstruttorio"
+    >
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Contributor" />
+    </permission>
+
   </permissions>
 </rolemap>

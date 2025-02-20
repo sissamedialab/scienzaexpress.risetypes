@@ -1,0 +1,66 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="scienzaexpress.risetypes"
+    >
+
+  <!-- -*- extra stuff goes here -*- -->
+
+  <browser:page
+      name="scire-setup"
+      for="scienzaexpress.risetypes.content.scire.IScire"
+      class=".scire_setup.ScireSetup"
+      template="scire_setup.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      name="nuovaletteramatematica-setup"
+      for="scienzaexpress.risetypes.content.nuova_lettera_matematica.INuovaLetteraMatematica"
+      class=".nuova_lettera_matematica_setup.NuovaLetteraMatematicaSetup"
+      template="nuovaletteramatematica_setup.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      name="contenutodigitale-setup"
+      for="scienzaexpress.risetypes.content.contenuto_digitale.IContenutoDigitale"
+      class=".contenuto_digitale_setup.ContenutoDigitaleSetup"
+      template="contenutodigitale_setup.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      name="ebook-setup"
+      for="scienzaexpress.risetypes.content.e_book.IEBook"
+      class=".e_book_setup.EBookSetup"
+      template="ebook_setup.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      name="albo-setup"
+      for="scienzaexpress.risetypes.content.albo.IAlbo"
+      class=".albo_setup.AlboSetup"
+      template="albo_setup.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      name="libro-setup"
+      for="scienzaexpress.risetypes.content.libro.ILibro"
+      class=".libro_setup.LibroSetup"
+      template="libro_setup.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      name="materialeistruttorio-setup"
+      for="scienzaexpress.risetypes.content.materiale_istruttorio.IMaterialeIstruttorio"
+      class=".materiale_istruttorio_setup.MaterialeIstruttorioSetup"
+      template="materialeistruttorio_setup.pt"
+      permission="zope2.View"
+      />
+
+</configure>
