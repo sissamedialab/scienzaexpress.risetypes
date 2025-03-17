@@ -77,6 +77,21 @@ class MaterialeIstruttorioSetup(BrowserView):
             )
             subfolder.setDescription("materiale digitale da autori")
 
+        if "xml" in self.context:
+            api.portal.show_message(
+                message="La cartella XML esiste già. Niente da fare!",
+                request=self.request,
+                type="warning",
+            )
+        else:
+            subfolder = create(
+                container=self.context,
+                type="Folder",
+                id="xml",
+                title="XML",
+            )
+            subfolder.setDescription("Metadata e contenuti XML")
+
         api.portal.show_message(
             message="Materiale Istruttorio setup completed.",
             request=self.request,

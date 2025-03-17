@@ -62,6 +62,21 @@ class ContenutoDigitaleSetup(BrowserView):
             )
             subfolder.setDescription("repository con immagini e multimedia")
 
+        if "xml" in self.context:
+            api.portal.show_message(
+                message="La cartella XML esiste già. Niente da fare!",
+                request=self.request,
+                type="warning",
+            )
+        else:
+            subfolder = create(
+                container=self.context,
+                type="Folder",
+                id="xml",
+                title="XML",
+            )
+            subfolder.setDescription("Metadata e contenuti XML")
+
         api.portal.show_message(
             message="Contenuto Digitale setup completed.",
             request=self.request,
