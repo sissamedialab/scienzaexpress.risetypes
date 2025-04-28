@@ -42,10 +42,4 @@
       />
 
 
-  <permission
-      id="scienzaexpress.risetypes.AddMaterialeIstruttorio"
-      title="scienzaexpress.risetypes: Add MaterialeIstruttorio"
-      />
-
-
 </configure>

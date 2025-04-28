@@ -63,14 +63,5 @@
     </permission>
 
 
-    <permission acquire="True"
-                name="scienzaexpress.risetypes: Add MaterialeIstruttorio"
-    >
-      <role name="Manager" />
-      <role name="Site Administrator" />
-      <role name="Owner" />
-      <role name="Contributor" />
-    </permission>
-
   </permissions>
 </rolemap>

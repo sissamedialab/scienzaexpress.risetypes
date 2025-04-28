@@ -55,12 +55,4 @@
       permission="zope2.View"
       />
 
-  <browser:page
-      name="materialeistruttorio-setup"
-      for="scienzaexpress.risetypes.content.materiale_istruttorio.IMaterialeIstruttorio"
-      class=".materiale_istruttorio_setup.MaterialeIstruttorioSetup"
-      template="materialeistruttorio_setup.pt"
-      permission="zope2.View"
-      />
-
 </configure>
