@@ -1,5 +1,5 @@
+from ..lib import FolderNode
 from plone import api
-from plone.api.content import create
 from Products.Five.browser import BrowserView
 from zope.interface import implementer
 from zope.interface import Interface
@@ -16,51 +16,28 @@ class IEBookSetup(Interface):
 class EBookSetup(BrowserView):
     def __call__(self):
         """Setup E-Book."""
+        folders = [
+            FolderNode("copertina+interno"),
+            FolderNode("ISBN codice a barre"),
+            FolderNode("XML"),
+        ]
 
-        if "copertina_interno" in self.context:
+        # We don't have a "root" but must work on a list
+        created = []
+        existing = []
+        for folder in folders:
+            sub_created, sub_existing = folder.create(self.context)
+            created.extend(sub_created)
+            existing.extend(sub_existing)
+
+        # Report a warning for each folder that already existed.
+        # No need to say anything about created ones.
+        for folder in existing:
             api.portal.show_message(
-                message="copertina+interno already exists. Doing nothing!",
+                message=f'la cartella "{folder}" esiste già.',
                 request=self.request,
                 type="warning",
             )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="copertina_interno",
-                title="copertina+interno",
-            )
-            subfolder.setDescription("copertina+interno")
-
-        if "isbn_codice_a_barre" in self.context:
-            api.portal.show_message(
-                message="ISBN codice a barre already exists. Doing nothing!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="isbn_codice_a_barre",
-                title="ISBN codice a barre",
-            )
-            subfolder.setDescription("ISBN codice a barre (jpg, pdf, eps)")
-
-        if "xml" in self.context:
-            api.portal.show_message(
-                message="La cartella XML esiste già. Niente da fare!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="xml",
-                title="XML",
-            )
-            subfolder.setDescription("Metadata e contenuti XML")
 
         api.portal.show_message(
             message="E-Book setup completed.",
