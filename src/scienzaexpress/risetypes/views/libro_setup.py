@@ -1,11 +1,74 @@
+from dataclasses import dataclass
+from dataclasses import field
 from plone import api
 from plone.api.content import create
 from Products.Five.browser import BrowserView
+from typing import List
 from zope.interface import implementer
 from zope.interface import Interface
 
+import keyword
+import re
 
-# from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
+def string_to_identifier(s: str) -> str:
+    """
+    Convert a string into a valid Python identifier.
+    Invalid characters are replaced with underscores.
+    If the result is a Python keyword or starts with a digit, it's prefixed.
+    """
+    # Replace invalid characters with underscores
+    identifier = re.sub(r"\W|^(?=\d)", "_", s)
+
+    # Ensure it doesn't start with a digit (already handled by lookahead above)
+    # but we'll add an extra prefix if it's a Python keyword
+    if keyword.iskeyword(identifier):
+        identifier = f"{identifier}_kw"
+
+    # Final fallback if it's empty or just underscores
+    if not identifier or identifier.strip("_") == "":
+        identifier = "_identifier"
+
+    return identifier
+
+
+@dataclass
+class Folder:
+    name: str
+    subfolders: List["Folder"] = field(default_factory=list)
+    fid: str = field(init=False)
+
+    def __post_init__(self):
+        self.fid = string_to_identifier(self.name)
+
+    def create(self, context) -> tuple[list, list]:
+        """
+        Create this folder and its subfolders starting from the given context.
+
+        Returns a tuple that contains the list of the created folders
+        and that of the already existing ones.
+        """
+        created = []
+        existing = []
+
+        if self.fid in context:
+            existing.append(self.name)
+        else:
+            folder = create(
+                container=context,
+                type="Folder",
+                id=self.fid,
+                title=self.name,
+            )
+            folder.setDescription(self.name)
+            created.append(self.name)
+
+            for sub in self.subfolders:
+                sub_created, sub_existing = sub.create(folder)
+                created.extend(sub_created)
+                existing.extend(sub_existing)
+
+        return (created, existing)
 
 
 class ILibroSetup(Interface):
@@ -16,218 +79,51 @@ class ILibroSetup(Interface):
 class LibroSetup(BrowserView):
     def __call__(self):
         """Setup Libro."""
+        # TODO: port to other types
+        folders = [
+            Folder("ISTRUTTORIA"),
+            Folder(
+                "PRODUZIONE",
+                [
+                    Folder("XML"),
+                    Folder("Da impaginare per interni"),
+                    Folder("Per realizzare la copertina"),
+                    Folder("Impaginato interno"),
+                    Folder("Copertina impaginata"),
+                ],
+            ),
+            Folder(
+                "VISTO SI STAMPI",
+                [
+                    Folder("Per lo stampatore"),
+                    Folder("Per la comunicazione"),
+                    Folder("Versione ePub"),
+                ],
+            ),
+            Folder(
+                "VITA DEL LIBRO",
+                [
+                    Folder("Per comunicazione"),
+                ],
+            ),
+        ]
 
-        if "cartella_indesign_latex_interni" in self.context:
+        # We don't have a "root" but must work on a list
+        created = []
+        existing = []
+        for folder in folders:
+            sub_created, sub_existing = folder.create(self.context)
+            created.extend(sub_created)
+            existing.extend(sub_existing)
+
+        # Report a warning for each folder that already existed.
+        # No need to say anything about created ones.
+        for folder in existing:
             api.portal.show_message(
-                message="cartella InDesign/LaTeX interni already exists. Doing nothing!",
+                message=f'la cartella "{folder}" esiste già.',
                 request=self.request,
                 type="warning",
             )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="cartella_indesign_latex_interni",
-                title="cartella InDesign/LaTeX interni",
-            )
-            subfolder.setDescription("cartella InDesign/LaTeX interni")
-
-        if "cartella_indesign_copertina" in self.context:
-            api.portal.show_message(
-                message="cartella InDesign copertina already exists. Doing nothing!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="cartella_indesign_copertina",
-                title="cartella InDesign copertina",
-            )
-            subfolder.setDescription("cartella InDesign copertina")
-
-        if "testo_definitivo_da_impaginare" in self.context:
-            api.portal.show_message(
-                message="testo definitivo da impaginare already exists. Doing nothing!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="testo_definitivo_da_impaginare",
-                title="testo definitivo da impaginare",
-            )
-            subfolder.setDescription("testo definitivo da impaginare (word, LaTeX)")
-
-        if "cartella_figure_definitive_da_impaginare" in self.context:
-            api.portal.show_message(
-                message="cartella figure definitive da impaginare already exists. Doing nothing!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="cartella_figure_definitive_da_impaginare",
-                title="cartella figure definitive da impaginare",
-            )
-            subfolder.setDescription(
-                "cartella figure definitive da impaginare (png, pdf, eps, …)"
-            )
-
-        if "pdf_interattivo_interno" in self.context:
-            api.portal.show_message(
-                message="pdf interattivo interno already exists. Doing nothing!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="pdf_interattivo_interno",
-                title="pdf interattivo interno",
-            )
-            subfolder.setDescription("pdf interattivo interno")
-
-        if "pdf_interattivo_copertina" in self.context:
-            api.portal.show_message(
-                message="pdf interattivo copertina already exists. Doing nothing!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="pdf_interattivo_copertina",
-                title="pdf interattivo copertina",
-            )
-            subfolder.setDescription("pdf interattivo copertina")
-
-        if "pdf_esecutivo_per_stampa_interno" in self.context:
-            api.portal.show_message(
-                message="pdf esecutivo per stampa interno already exists. Doing nothing!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="pdf_esecutivo_per_stampa_interno",
-                title="pdf esecutivo per stampa interno",
-            )
-            subfolder.setDescription("pdf esecutivo per stampa interno")
-
-        if "pdf_esecutivo_per_stampa_copertina" in self.context:
-            api.portal.show_message(
-                message="pdf esecutivo per stampa copertina already exists. Doing nothing!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="pdf_esecutivo_per_stampa_copertina",
-                title="pdf esecutivo per stampa copertina",
-            )
-            subfolder.setDescription("pdf esecutivo per stampa copertina")
-
-        if "prima_di_copertina" in self.context:
-            api.portal.show_message(
-                message="prima di copertina already exists. Doing nothing!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="prima_di_copertina",
-                title="prima di copertina",
-            )
-            subfolder.setDescription("prima di copertina (jpg)")
-
-        if "foto_autore" in self.context:
-            api.portal.show_message(
-                message="foto autore already exists. Doing nothing!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="foto_autore",
-                title="foto autore",
-            )
-            subfolder.setDescription("foto autore (jpg, png)")
-
-        if "scheda_librai" in self.context:
-            api.portal.show_message(
-                message="scheda librai already exists. Doing nothing!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="scheda_librai",
-                title="scheda librai",
-            )
-            subfolder.setDescription("scheda librai (pdf)")
-
-        if "scheda_stampa" in self.context:
-            api.portal.show_message(
-                message="scheda stampa already exists. Doing nothing!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="scheda_stampa",
-                title="scheda stampa",
-            )
-            subfolder.setDescription("scheda stampa (pdf)")
-
-        if "isbn_codice_a_barre" in self.context:
-            api.portal.show_message(
-                message="ISBN codice a barre already exists. Doing nothing!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="isbn_codice_a_barre",
-                title="ISBN codice a barre",
-            )
-            subfolder.setDescription("ISBN codice a barre (jpg, pdf, eps)")
-
-        if "xml" in self.context:
-            api.portal.show_message(
-                message="La cartella XML esiste già. Niente da fare!",
-                request=self.request,
-                type="warning",
-            )
-        else:
-            subfolder = create(
-                container=self.context,
-                type="Folder",
-                id="xml",
-                title="XML",
-            )
-            subfolder.setDescription("Metadata e contenuti XML")
 
         api.portal.show_message(
             message="Libro setup completed.",
