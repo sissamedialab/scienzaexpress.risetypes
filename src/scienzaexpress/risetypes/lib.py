@@ -10,17 +10,10 @@ import re
 def string_to_identifier(s: str) -> str:
     """
     Convert a string into a valid Python identifier.
+
     Invalid characters are replaced with underscores.
     If the result is a Python keyword or starts with a digit, it's prefixed.
     """
-    # Ugly workaround! 🤮
-    # In
-    # scienzaexpress.preflights.src.scienzaexpress.preflights.views.validate_pdf_metadata.find_metadata_object
-    # we expect the XML folder to have the ID "xml" (lowercase).
-    # To correcctly address this we should fix the creation of all XML folders for the old types.
-    if s == "XML":
-        return "xml"
-
     # Replace invalid characters with underscores
     identifier = re.sub(r"\W|^(?=\d)", "_", s)
 
