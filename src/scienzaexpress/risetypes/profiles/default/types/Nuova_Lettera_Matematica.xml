@@ -8,10 +8,10 @@
   <!-- Basic properties -->
   <property name="title"
             i18n:translate=""
-  >Nuova Lettera Matematica</property>
+  >Rivista</property>
   <property name="description"
             i18n:translate=""
-  >WRITEME</property>
+  >Adatto per Nuova Lettera Matematica e simili</property>
 
   <property name="allow_discussion">False</property>
   <property name="factory">Nuova Lettera Matematica</property>
