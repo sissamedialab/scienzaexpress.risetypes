@@ -14,19 +14,31 @@ class NuovaLetteraMatematicaSetup(BrowserView):
     def __call__(self):
         """Setup Nuova Lettera Matematica."""
         folders = [
-            FolderNode("cartella InDesign interni"),
-            FolderNode("cartella InDesign copertina"),
-            FolderNode("testo definitivo da impaginare"),
-            FolderNode("cartella figure definitive da impaginare"),
-            FolderNode("pdf interattivo interno"),
-            FolderNode("pdf interattivo copertina"),
-            FolderNode("pdf esecutivo per stampa interno"),
-            FolderNode("pdf esecutivo per stampa copertina"),
-            FolderNode("prima di copertina"),
-            FolderNode("scheda librai"),
-            FolderNode("scheda stampa"),
-            FolderNode("ISBN codice a barre"),
-            FolderNode("XML"),
+            FolderNode("ISTRUTTORIA"),
+            FolderNode(
+                "PRODUZIONE",
+                [
+                    FolderNode("XML"),
+                    FolderNode("Da impaginare per interni"),
+                    FolderNode("Per realizzare la copertina"),
+                    FolderNode("Impaginato interno"),
+                    FolderNode("Copertina impaginata"),
+                ],
+            ),
+            FolderNode(
+                "VISTO SI STAMPI",
+                [
+                    FolderNode("Per lo stampatore"),
+                    FolderNode("Per la comunicazione"),
+                    FolderNode("Versione ePub"),
+                ],
+            ),
+            FolderNode(
+                "VITA DEL LIBRO",
+                [
+                    FolderNode("Per comunicazione"),
+                ],
+            ),
         ]
 
         # We don't have a "root" but must work on a list
