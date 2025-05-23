@@ -34,7 +34,7 @@ class NuovaLetteraMatematicaSetup(BrowserView):
                 ],
             ),
             FolderNode(
-                "VITA DEL LIBRO",
+                "VITA DELLA RIVISTA",
                 [
                     FolderNode("Per comunicazione"),
                 ],
