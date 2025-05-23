@@ -14,7 +14,7 @@ long_description = f"""
 
 setup(
     name="scienzaexpress.risetypes",
-    version="1.0.0a0",
+    version="1.0.1",
     description="Collection of content types for RISE",
     long_description=long_description,
     long_description_content_type="text/markdown",
