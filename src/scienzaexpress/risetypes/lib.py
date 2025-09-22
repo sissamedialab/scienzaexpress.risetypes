@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from dataclasses import field
 from plone.api.content import create
-from typing import List
 
 import keyword
 import re
@@ -32,7 +31,7 @@ def string_to_identifier(s: str) -> str:
 @dataclass
 class FolderNode:
     name: str
-    subfolders: List["FolderNode"] = field(default_factory=list)
+    subfolders: list["FolderNode"] = field(default_factory=list)
     fid: str = field(init=False)
 
     def __post_init__(self):
@@ -57,7 +56,6 @@ class FolderNode:
                 id=self.fid,
                 title=self.name,
             )
-            folder.setDescription(self.name)
             created.append(self.name)
 
             for sub in self.subfolders:
