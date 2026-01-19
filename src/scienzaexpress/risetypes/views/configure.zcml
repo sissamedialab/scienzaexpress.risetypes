@@ -55,4 +55,22 @@
       permission="zope2.View"
       />
 
+
+  <!-- Custom File view -->
+  <browser:page
+      name="pippo"
+      for="plone.app.contenttypes.interfaces.IFile"
+      class=".pippo_view.PippoView"
+      template="file_view.pt"
+      permission="zope2.View"
+      />
+
+  <!-- Display file inline (for PDFs) -->
+  <browser:page
+      name="mydisplay-file"
+      for="plone.app.contenttypes.interfaces.IFile"
+      class=".display_file.DisplayFile"
+      permission="zope2.View"
+      />
+
 </configure>
