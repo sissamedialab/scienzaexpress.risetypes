@@ -30,8 +30,8 @@ class LibroSetup(BrowserView):
                 "VISTO SI STAMPI",
                 [
                     FolderNode("Per lo stampatore"),
-                    FolderNode("Per la comunicazione"),
-                    FolderNode("Versione ePub"),
+                    FolderNode("Per gli add-on"),
+                    FolderNode("Per l'e-book"),
                 ],
             ),
             FolderNode(
