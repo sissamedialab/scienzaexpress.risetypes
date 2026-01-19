@@ -5,9 +5,9 @@ from zope.interface import implementer
 from zope.publisher.interfaces import IPublishTraverse
 
 
-class PippoView(FileView):
-    """Custom view for File content type."""
+class DisplayPDFView(FileView):
+    """View that tells is a File is a pdf."""
 
-    def is_pdf(self):
+    def is_pdf(self) -> bool:
         """Check if the file is a PDF."""
         return self.context.file.contentType == "application/pdf"

@@ -5,12 +5,12 @@
         i18n:domain="plone"
 >
 
-  <property name="default_view">pippo</property>
+  <property name="default_view">display-pdf</property>
 
   <property name="view_methods"
             purge="false"
   >
-    <element value="pippo" />
+    <element value="display-pdf" />
   </property>
 
 </object>

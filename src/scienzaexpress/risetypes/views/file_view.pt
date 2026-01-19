@@ -77,11 +77,10 @@
                  href="${python:download_url}"
                  i18n:translate=""
               >Download</a>
-              <div tal:content="python:view.__dir__()">view</div>
               <a class="btn btn-primary"
                  target="_blank"
                  tal:define="
-                   viewfile_url python: '{}/@@mydisplay-file/file/{}'.format(context.absolute_url(), filename);
+                   viewfile_url python: '{}/@@inline-file/file/{}'.format(context.absolute_url(), filename);
                  "
                  tal:condition="view/is_pdf"
                  tal:attributes="
@@ -89,8 +88,7 @@
                  "
                  i18n:translate=""
               >
-        View in Browser
-                <span tal:content="viewfile_url">url</span>
+        Vedi nel browser
               </a>
             </section>
           </tal:block>

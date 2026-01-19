@@ -56,18 +56,19 @@
       />
 
 
-  <!-- Custom File view -->
+  <!-- View that tells is a File is a pdf -->
   <browser:page
-      name="pippo"
+      name="display-pdf"
       for="plone.app.contenttypes.interfaces.IFile"
-      class=".pippo_view.PippoView"
+      class=".displaypdf_view.DisplayPDFView"
       template="file_view.pt"
       permission="zope2.View"
       />
 
   <!-- Display file inline (for PDFs) -->
+  <!-- Please note that there already exists a display-file view, but I wasn't able to make it work correctly 😢 -->
   <browser:page
-      name="mydisplay-file"
+      name="inline-file"
       for="plone.app.contenttypes.interfaces.IFile"
       class=".display_file.DisplayFile"
       permission="zope2.View"
