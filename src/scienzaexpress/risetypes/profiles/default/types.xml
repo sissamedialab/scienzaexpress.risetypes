@@ -25,4 +25,7 @@
   <object meta_type="Dexterity FTI"
           name="SCIRE"
   />
+  <object meta_type="Dexterity FTI"
+          name="Manoscritto"
+  />
 </object>

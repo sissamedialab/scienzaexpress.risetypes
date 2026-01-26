@@ -4,6 +4,16 @@
     <!-- -*- extra stuff goes here -*- -->
 
     <permission acquire="True"
+                name="scienzaexpress.risetypes: Add Manoscritto"
+    >
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Contributor" />
+    </permission>
+
+
+    <permission acquire="True"
                 name="scienzaexpress.risetypes: Add Scire"
     >
       <role name="Manager" />

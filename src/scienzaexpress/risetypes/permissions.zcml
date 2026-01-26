@@ -7,6 +7,12 @@
   <!-- -*- extra stuff goes here -*- -->
 
   <permission
+      id="scienzaexpress.risetypes.AddManoscritto"
+      title="scienzaexpress.risetypes: Add Manoscritto"
+      />
+
+
+  <permission
       id="scienzaexpress.risetypes.AddScire"
       title="scienzaexpress.risetypes: Add Scire"
       />
