@@ -9,10 +9,9 @@
 
   <browser:page
       name="manoscritto-setup"
-      for="Manoscritto"
+      for="scienzaexpress.risetypes.content.manoscritto.IManoscritto"
       class=".manoscritto_setup.ManoscrittoSetup"
       permission="zope2.View"
-      layer="scienzaexpress.risetypes.interfaces.IScienzaexpressRisetypesLayer"
       />
 
   <browser:page
