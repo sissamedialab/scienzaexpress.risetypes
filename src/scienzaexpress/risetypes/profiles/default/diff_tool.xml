@@ -2,5 +2,7 @@
 <object>
   <difftypes>
 
-  </difftypes>
+    <type portal_type="Manoscritto"><field difftype="Compound Diff for Dexterity types"
+             name="any"
+      /></type></difftypes>
 </object>
