@@ -8,6 +8,14 @@
   <!-- -*- extra stuff goes here -*- -->
 
   <browser:page
+      name="manoscritto-setup"
+      for="Manoscritto"
+      class=".manoscritto_setup.ManoscrittoSetup"
+      permission="zope2.View"
+      layer="scienzaexpress.risetypes.interfaces.IScienzaexpressRisetypesLayer"
+      />
+
+  <browser:page
       name="scire-setup"
       for="scienzaexpress.risetypes.content.scire.IScire"
       class=".scire_setup.ScireSetup"
