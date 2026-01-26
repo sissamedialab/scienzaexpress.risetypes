@@ -81,4 +81,13 @@
       permission="zope2.View"
       />
 
+
+  <browser:page
+      name="folder-listing-nb"
+      for="plone.dexterity.interfaces.IDexterityContainer"
+      class=".folder_view.FolderViewNoByline"
+      template="folder_listing.pt"
+      permission="zope2.View"
+      />
+
 </configure>
