@@ -9,13 +9,13 @@ from zope.interface import Interface
 
 
 class IEBookSetup(Interface):
-    """Marker Interface for ICreatePages"""
+    """Marker Interface for ICreatePages."""
 
 
 @implementer(IEBookSetup)
 class EBookSetup(BrowserView):
     def __call__(self):
-        """Setup E-Book."""
+        """Set up E-Book."""
         folders = [
             FolderNode("copertina+interno"),
             FolderNode("ISBN codice a barre"),
@@ -44,4 +44,4 @@ class EBookSetup(BrowserView):
             request=self.request,
             type="success",
         )
-        return self.index()
+        return self.request.response.redirect(self.context.absolute_url())

@@ -6,13 +6,13 @@ from zope.interface import Interface
 
 
 class IScireSetup(Interface):
-    """Marker Interface for ICreatePages"""
+    """Marker Interface for ICreatePages."""
 
 
 @implementer(IScireSetup)
 class ScireSetup(BrowserView):
     def __call__(self):
-        """Setup SCIRE."""
+        """Set up SCIRE."""
         folders = [
             FolderNode("cartella InDesign interni"),
             FolderNode("cartella InDesign copertina"),
@@ -49,4 +49,4 @@ class ScireSetup(BrowserView):
             request=self.request,
             type="success",
         )
-        return self.index()
+        return self.request.response.redirect(self.context.absolute_url())

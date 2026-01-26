@@ -6,13 +6,13 @@ from zope.interface import Interface
 
 
 class ILibroSetup(Interface):
-    """Marker Interface for ICreatePages"""
+    """Marker Interface for ICreatePages."""
 
 
 @implementer(ILibroSetup)
 class LibroSetup(BrowserView):
     def __call__(self):
-        """Setup Libro."""
+        """Set up Libro."""
         # TODO: port to other types
         folders = [
             FolderNode("ISTRUTTORIA"),
@@ -64,4 +64,4 @@ class LibroSetup(BrowserView):
             request=self.request,
             type="success",
         )
-        return self.index()
+        return self.request.response.redirect(self.context.absolute_url())

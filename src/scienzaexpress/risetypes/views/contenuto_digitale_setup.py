@@ -6,13 +6,13 @@ from zope.interface import Interface
 
 
 class IContenutoDigitaleSetup(Interface):
-    """Marker Interface for ICreatePages"""
+    """Marker Interface for ICreatePages."""
 
 
 @implementer(IContenutoDigitaleSetup)
 class ContenutoDigitaleSetup(BrowserView):
     def __call__(self):
-        """Setup Contenuto Digitale."""
+        """Set up Contenuto Digitale."""
         folders = [
             FolderNode("immagine di copertina"),
             FolderNode("testo"),
@@ -42,4 +42,4 @@ class ContenutoDigitaleSetup(BrowserView):
             request=self.request,
             type="success",
         )
-        return self.index()
+        return self.request.response.redirect(self.context.absolute_url())

@@ -6,13 +6,13 @@ from zope.interface import Interface
 
 
 class INuovaLetteraMatematicaSetup(Interface):
-    """Marker Interface for ICreatePages"""
+    """Marker Interface for ICreatePages."""
 
 
 @implementer(INuovaLetteraMatematicaSetup)
 class NuovaLetteraMatematicaSetup(BrowserView):
     def __call__(self):
-        """Setup Nuova Lettera Matematica."""
+        """Set up Nuova Lettera Matematica."""
         folders = [
             FolderNode("ISTRUTTORIA"),
             FolderNode(
@@ -63,4 +63,4 @@ class NuovaLetteraMatematicaSetup(BrowserView):
             request=self.request,
             type="success",
         )
-        return self.index()
+        return self.request.response.redirect(self.context.absolute_url())

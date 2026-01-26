@@ -6,13 +6,13 @@ from zope.interface import Interface
 
 
 class IAlboSetup(Interface):
-    """Marker Interface for ICreatePages"""
+    """Marker Interface for ICreatePages."""
 
 
 @implementer(IAlboSetup)
 class AlboSetup(BrowserView):
     def __call__(self):
-        """Setup Albo."""
+        """Set up Albo."""
         folders = [
             FolderNode("cartella InDesign interni"),
             FolderNode("cartella InDesign copertina"),
@@ -54,4 +54,4 @@ class AlboSetup(BrowserView):
             request=self.request,
             type="success",
         )
-        return self.index()
+        return self.request.response.redirect(self.context.absolute_url())
