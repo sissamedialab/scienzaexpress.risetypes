@@ -64,12 +64,20 @@
 
   <!-- View information -->
   <property name="add_view_expr">string:${folder_url}/++add++Contenuto Digitale</property>
-  <property name="default_view">view</property>
+  <!-- <property name="default_view">view</property> -->
   <property name="default_view_fallback">False</property>
   <property name="immediate_view">view</property>
+  <!-- <property name="view_methods"> -->
+  <!--   <element value="view" /> -->
+  <!-- </property> -->
+
+  <!-- mio start -->
+  <property name="default_view">folder-listing-nb</property>
   <property name="view_methods">
     <element value="view" />
+    <element value="folder-listing-nb" />
   </property>
+  <!-- mio end -->
 
   <!-- Method aliases -->
   <alias from="(Default)"

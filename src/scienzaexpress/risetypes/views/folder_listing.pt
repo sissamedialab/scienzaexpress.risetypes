@@ -13,7 +13,9 @@
 
     <metal:content-core fill-slot="content-core">
       <metal:block define-macro="content-core">
-
+        <div class="badge text-bg-secondary mb-4"
+             tal:content="context/portal_type"
+        ></div>
         <metal:listingmacro define-macro="listing">
           <tal:results define="
                          batch view/batch;
