@@ -14,7 +14,12 @@ class NuovaLetteraMatematicaSetup(BrowserView):
     def __call__(self):
         """Set up Nuova Lettera Matematica."""
         folders = [
-            FolderNode("ISTRUTTORIA"),
+            FolderNode(
+                "ISTRUTTORIA",
+                [
+                    FolderNode("Materiali dell'autore"),
+                ],
+            ),
             FolderNode(
                 "PRODUZIONE",
                 [

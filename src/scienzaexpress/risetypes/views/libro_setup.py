@@ -13,9 +13,13 @@ class ILibroSetup(Interface):
 class LibroSetup(BrowserView):
     def __call__(self):
         """Set up Libro."""
-        # TODO: port to other types
         folders = [
-            FolderNode("ISTRUTTORIA"),
+            FolderNode(
+                "ISTRUTTORIA",
+                [
+                    FolderNode("Materiali dell'autore"),
+                ],
+            ),
             FolderNode(
                 "PRODUZIONE",
                 [
